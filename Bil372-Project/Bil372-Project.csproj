@@ -135,6 +135,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DepartmentViewModel.cs" />
     <Compile Include="Models\PersonelModel.cs" />
+    <Compile Include="Models\PersonelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

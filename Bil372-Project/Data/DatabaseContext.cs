@@ -16,10 +16,18 @@ namespace Bil372_Project.Data
         }
 
         public IDbSet<Department> Departmes { get; set; }
+        public IDbSet<PersonelModel> Personel { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<DbContext>(new DropCreateDatabaseIfModelChanges<DbContext>());
+
             modelBuilder.Entity<Department>().ToTable("Department");
+            modelBuilder.Entity<PersonelModel>().ToTable("Personel");
+
         }
+
+
     }
 }

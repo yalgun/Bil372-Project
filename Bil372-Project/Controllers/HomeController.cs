@@ -19,8 +19,14 @@ namespace Bil372_Project.Controllers
 
         public ActionResult Index()
         {
+
             var viewModel = new DepartmentViewModel();
             viewModel.Departments = DbContext.Departmes.ToList();
+
+
+            var viewM = new PersonelViewModel();
+            //viewM.Personel = DbContext.Personel.ToList();
+            
             return View(viewModel);
         }
 
