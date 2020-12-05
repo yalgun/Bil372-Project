@@ -1,6 +1,4 @@
-﻿using Bil372_Project.Data;
-using Bil372_Project.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,24 +8,9 @@ namespace Bil372_Project.Controllers
 {
     public class PersonelController : Controller
     {
-
-        private DatabaseContext DbContext = new DatabaseContext();
         // GET: Personel
-        public ActionResult PersonelInformation(int? id)
+        public ActionResult PersonelInformation()
         {
-
-
-            if (id == null) {
-                return RedirectToAction("Login", "Login");
-            }
-            var person = DbContext.Personel.Where(x => x.ID == id ).FirstOrDefault();
-            var departman = DbContext.Departmes.Where(x => x.DepartmentID == person.dno).FirstOrDefault();
-            PersonelModel personelModel = (PersonelModel)person;
-            Department dept = (Department)departman;
-
-            ViewData["Message"] = personelModel;
-            ViewData["departman"] = dept;
-
             return View();
         }
     }

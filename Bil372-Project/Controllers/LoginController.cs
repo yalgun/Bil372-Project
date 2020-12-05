@@ -41,11 +41,7 @@ namespace Bil372_Project.Controllers
             var person = DbContext.Personel.Where(x => x.email == personelModel.email && x.parola == personelModel.parola).FirstOrDefault();
 
             if (person != null) {
-                string personelusername = personelModel.email;
-                Session["ID"] = person.ID;
-                var PID = (int)Session["ID"];
-
-                return RedirectToAction("PersonelInformation", "Personel", new {id= PID });
+                return RedirectToAction("PersonelInformation", "Personel");
             }
 
             return RedirectToAction("LoginPage", "Login");
