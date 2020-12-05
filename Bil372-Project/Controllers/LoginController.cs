@@ -11,6 +11,7 @@ namespace Bil372_Project.Controllers
     public class LoginController : Controller
     {
         private DatabaseContext DbContext = new DatabaseContext();
+        
 
         // GET: Login
         public ActionResult LoginPage()
@@ -40,9 +41,14 @@ namespace Bil372_Project.Controllers
             var person = DbContext.Personel.Where(x => x.email == personelModel.email && x.parola == personelModel.parola).FirstOrDefault();
 
             if (person != null) {
-                return RedirectToAction("PersonelInformation", "Personel");
+                string personelusername = personelModel.email;
+                string personelparola =personelModel.parola;
+
+                Session["ID"] = person.ID;
+                var PID = (int)Session["ID"];
+
+                return RedirectToAction("PersonelInformation", "Personel", new {id= PID });
             }
-            
 
             return RedirectToAction("LoginPage", "Login");
         }

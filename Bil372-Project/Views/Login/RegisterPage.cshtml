@@ -1,0 +1,84 @@
+﻿@model Bil372_Project.Models.PersonelModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personel Sign up & login Form a Flat Responsive Widget Template :: w3layouts </title>
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personel Sign up & login Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!-- Meta tags -->
+    <!--stylesheets-->
+    <link href="/loginform/css/style.css" rel='stylesheet' type='text/css' media="all" />
+    <!--//style sheet end here-->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet" />
+</head>
+<body>
+    <div class="mid-class">
+        <div class="art-right-w3ls">
+            <h2> Personel Sign In and Sign Up</h2>
+            @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-left-to-w3l">
+                    @Html.LabelFor(m => m.PersonName)
+                    @Html.TextBoxFor(m => m.PersonName, "AAAA", new { @class = "form-control", @placeholder = "First Name" })
+                </div>
+                <div class="form-left-to-w3l">
+                    @Html.LabelFor(m => m.PersonSurname)
+                    @Html.TextBoxFor(m => m.PersonSurname, "", new { @class = "form-control", @placeholder = "Last Name" })
+                </div>
+                <div class="form-left-to-w3l">
+                    @Html.LabelFor(m => m.email)
+                    @Html.TextBoxFor(m => m.email, "", new { @class = "form-control", @placeholder = "Email" })
+                </div>
+                <div class="form-left-to-w3l">
+                    @Html.LabelFor(m => m.username)
+                    @Html.TextBoxFor(m => m.username, "", new { @class = "form-control", @placeholder = "User Name" })
+                </div>
+                <div class="form-left-to-w3l margin-zero">
+                    @Html.LabelFor(m => m.parola)
+                    @Html.TextBoxFor(m => m.parola, "", new { @class = "form-control", @placeholder = "Confirm Password" })
+                </div>
+                <div class="form-left-to-w3l margin-zero">
+                    @Html.LabelFor(m => m.adres)
+                    @Html.TextBoxFor(m => m.adres, "", new { @class = "form-control", @placeholder = "Address" })
+                </div>
+                <div class="form-left-to-w3l margin-zero">
+                    @Html.LabelFor(m => m.telefon)
+                    @Html.TextBoxFor(m => m.telefon, "", new { @class = "form-control", @placeholder = "Telephone Number" })
+                </div>
+                <div class="form-left-to-w3l margin-zero">
+                    @Html.LabelFor(m => m.meslek)
+                    @Html.TextBoxFor(m => m.meslek, "", new { @class = "form-control", @placeholder = "Career" })
+                </div>
+                <div class="form-left-to-w3l margin-zero">
+                    @Html.LabelFor(m => m.dno)
+                    @Html.TextBoxFor(m => m.dno, "", new { @class = "form-control", @placeholder = "Department No" })
+                </div>
+                <div class="btnn">
+                    <button type="submit">Sign Up</button>
+                    <br />
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
+
+    </div>
+    <footer class="bottem-wthree-footer">
+        <p>
+            © 2019 Personel Sign Up & Login Form. All Rights Reserved | Design by
+            <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
+        </p>
+    </footer>
+</body>
+</html>
+
