@@ -11,6 +11,7 @@ namespace Bil372_Project.Controllers
     public class LoginController : Controller
     {
         private DatabaseContext DbContext = new DatabaseContext();
+        
 
         // GET: Login
         public ActionResult LoginPage()
@@ -46,7 +47,6 @@ namespace Bil372_Project.Controllers
 
                 return RedirectToAction("PersonelInformation", "Personel", new {id= PID });
             }
-            
 
             return RedirectToAction("LoginPage", "Login");
         }
