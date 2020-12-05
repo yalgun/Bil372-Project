@@ -42,6 +42,8 @@ namespace Bil372_Project.Controllers
 
             if (person != null) {
                 string personelusername = personelModel.email;
+                string personelparola =personelModel.parola;
+
                 Session["ID"] = person.ID;
                 var PID = (int)Session["ID"];
 

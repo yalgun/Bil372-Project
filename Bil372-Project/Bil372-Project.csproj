@@ -159,8 +159,11 @@
     </Compile>
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DepartmentViewModel.cs" />
+    <Compile Include="Models\Learn_DevelopmentModel.cs" />
     <Compile Include="Models\PersonelModel.cs" />
     <Compile Include="Models\PersonelViewModel.cs" />
+    <Compile Include="Models\SertifikaModel.cs" />
+    <Compile Include="Models\Time_AttandanceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -428,6 +431,7 @@
     <None Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Views\Login\RegisterPage.cshtml" />
+    <Content Include="Views\Shared\AdminMain.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
