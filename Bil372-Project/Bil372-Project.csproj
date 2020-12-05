@@ -159,8 +159,12 @@
     </Compile>
     <Compile Include="Models\Acik_PozisyonModel.cs" />
     <Compile Include="Models\Acik_PozisyonViewModel.cs" />
+    <Compile Include="Models\Benef_ManModel.cs" />
+    <Compile Include="Models\Benef_ManViewModel.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\DepartmentViewModel.cs" />
+    <Compile Include="Models\Fin_Man.cs" />
+    <Compile Include="Models\Fin_ManViewModel.cs" />
     <Compile Include="Models\IzinModel.cs" />
     <Compile Include="Models\IzinViewModel.cs" />
     <Compile Include="Models\Learn_DevelopmentModel.cs" />
@@ -175,6 +179,7 @@
     <Compile Include="Models\SigortaModel.cs" />
     <Compile Include="Models\SigortaViewModel.cs" />
     <Compile Include="Models\Time_AttandanceModel.cs" />
+    <Compile Include="Models\Time_AttandanceViewModel.cs" />
     <Compile Include="Models\Works_onModel.cs" />
     <Compile Include="Models\Works_onViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
