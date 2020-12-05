@@ -16,7 +16,7 @@ namespace Bil372_Project.Models
 
 
 
-        [ForeignKey("personal_id")]
+        [ForeignKey("personel_id")]
         public PersonelModel PersonelModel { get; set; }
 
         [ForeignKey("project_id")]

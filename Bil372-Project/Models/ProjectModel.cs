@@ -15,10 +15,6 @@ namespace Bil372_Project.Models
         public int dno { get; set; }
 
 
-        [ForeignKey("dno")]
-
-        public Department Deparment { get; set; }
-
 
     }
 }
