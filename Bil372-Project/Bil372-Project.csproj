@@ -162,9 +162,13 @@
     <Compile Include="Models\Learn_DevelopmentModel.cs" />
     <Compile Include="Models\PersonelModel.cs" />
     <Compile Include="Models\PersonelViewModel.cs" />
+    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="Models\SertifikaModel.cs" />
     <Compile Include="Models\SertifikaViewModel.cs" />
     <Compile Include="Models\Time_AttandanceModel.cs" />
+    <Compile Include="Models\Works_onModel.cs" />
+    <Compile Include="Models\Works_onViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
