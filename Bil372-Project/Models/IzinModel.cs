@@ -13,12 +13,10 @@ namespace Bil372_Project.Models
         public int ID { get; set; }
         public int pid { get; set; }
         public string aciklama { get; set; }
-
         public DateTime baslangic_t { get; set; }
         public DateTime bitis_t { get; set; }
-
-      
         public int gun_sayisi { get; set; }
+        public int isApprove { get; set; }
 
 
 

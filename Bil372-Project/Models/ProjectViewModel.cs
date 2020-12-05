@@ -13,3 +13,4 @@ namespace Bil372_Project.Models
             Project = new List<ProjectModel>();
         }
     }
+}

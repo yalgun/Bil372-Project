@@ -12,7 +12,7 @@ namespace Bil372_Project.Models
 
         [Key]
         public int ID { get; set; }
-        public string person_id { get; set; }
+        public int person_id { get; set; }
         public int sertifika_id { get; set; }
 
         [ForeignKey("person_id")]
