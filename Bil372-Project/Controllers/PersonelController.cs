@@ -21,9 +21,12 @@ namespace Bil372_Project.Controllers
                 return RedirectToAction("Login", "Login");
             }
             var person = DbContext.Personel.Where(x => x.ID == id ).FirstOrDefault();
+            var departman = DbContext.Departmes.Where(x => x.DepartmentID == person.dno).FirstOrDefault();
             PersonelModel personelModel = (PersonelModel)person;
+            Department dept = (Department)departman;
 
             ViewData["Message"] = personelModel;
+            ViewData["departman"] = dept;
 
             return View();
         }
