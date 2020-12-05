@@ -178,6 +178,8 @@
     <Compile Include="Models\SertifikaViewModel.cs" />
     <Compile Include="Models\SigortaModel.cs" />
     <Compile Include="Models\SigortaViewModel.cs" />
+    <Compile Include="Models\Talent_ManageModel.cs" />
+    <Compile Include="Models\Talent_ManageViewModel.cs" />
     <Compile Include="Models\Time_AttandanceModel.cs" />
     <Compile Include="Models\Time_AttandanceViewModel.cs" />
     <Compile Include="Models\Works_onModel.cs" />
