@@ -32,5 +32,26 @@ namespace Bil372_Project.Controllers
 
             return View();
         }
+
+        public ActionResult Personel_proje(int?id) {
+
+            if (id == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            LoggedUserID = id;
+            var workson = DbContext.Works_onModels.Where(x => x.personel_id == id).FirstOrDefault();
+            var proje = DbContext.ProjectModels.Where(x => x.pid == workson.project_id).FirstOrDefault();
+            ProjectModel projectModel = (ProjectModel) proje;
+           
+            ViewData["Projeler"] = proje;
+           
+
+            return View();
+
+        }
+
+
     }
 }
