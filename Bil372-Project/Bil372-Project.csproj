@@ -162,7 +162,6 @@
     <Compile Include="Models\PersonelModel.cs" />
     <Compile Include="Models\PersonelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
