@@ -1,0 +1,194 @@
+﻿@model Bil372_Project.Models.SertifikaModel
+@using Bil372_Project.Models
+@{
+    Layout = "~/Views/Shared/AdminMain.cshtml";}
+@{
+    var data = (PersonelModel)ViewData["Message"];
+}
+
+<style>
+    select {
+        width: 100px !important;
+    }
+
+    dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #f1f1f1
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+
+    .label {
+        color: #B4886B;
+        font-weight: bold;
+        display: block;
+        width: 150px;
+        float: left;
+    }
+
+        .label:after {
+            content: ": "
+        }
+
+    .success {
+        background-color: #4CAF50;
+    }
+    /* Green */
+    .info {
+        background-color: #2196F3;
+    }
+    /* Blue */
+    .warning {
+        background-color: #ff9800;
+    }
+    /* Orange */
+    .danger {
+        background-color: #f44336;
+    }
+    /* Red */
+    .other {
+        background-color: #e7e7e7;
+        color: black;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    body {
+        font-family: Arial;
+        margin: 0;
+    }
+
+    /* Header/Logo Title */
+    .header {
+        padding: 60px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 30px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        outline: none;
+    }
+
+    input[type=datetime-local] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        outline: none;
+    }
+    /* Page Content */
+    .content {
+        padding: 20px;
+    }
+
+    button[type=submit] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    input[type=text]:focus {
+        background-color: lightblue;
+    }
+
+    .submit {
+        background-color: #4CAF50;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+
+    /* Gray */
+</style>
+
+<body>
+    <div class="header">
+        <h1>Add New Sertificates to Person</h1>
+
+    </div>
+    <div class="mid-class">
+        <div class="art-right-w3ls">
+            @using (Html.BeginForm("getSelectedValue", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-left-to-w3l">
+                    <div class="col-md-6">
+                        <label>Person Name:</label>
+                    </div>
+                    @Html.DropDownList("Persons", ViewBag.Persons as SelectList, new { @class = "form-control" })
+                </div>
+                <div class="form-left-to-w3l">
+                    <div class="col-md-6">
+                        <label>Sertificate Name:</label>
+                    </div>
+                    @Html.DropDownList("Sertificate", ViewBag.Sertificate as SelectList , new { @class = "form-control" })
+                </div>
+
+
+                <div class="btnn">
+                    <button type="submit">Add</button>
+                    <br />
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
+
+    </div>
+
+</body>
+
+

@@ -1,0 +1,95 @@
+﻿@model Bil372_Project.Models.SertifikaViewModel
+@using Bil372_Project.Models
+
+
+@{
+    ViewBag.Title = "Sertificate";
+    Layout = "~/Views/Shared/AdminMain.cshtml";
+}
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Style the body */
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        /* Header/Logo Title */
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 30px;
+        }
+
+        /* Page Content */
+        .content {
+            padding: 20px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>List All Sertificates</h1>
+        <li>
+            <a href="@Url.Action("AddSertificate", "LearnDevelopment")" class="elements">
+                <span>Add Sertificate</span>
+            </a>
+        </li>
+    </div>
+
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th> Sertifika Adı</th>
+            <th> Sertifika Tarihi</th>
+            <th>Sertifika Açıklama</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model.SertifikaModels.ToList())
+            {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.sertifika_adi</td>
+                <td>@item.sertifika_tarihi</td>
+                <td>@item.sertifika_aciklama</td>
+                <td>
+                    <a href="@Url.Action("DeleteSertificate", "LearnDevelopment", new { id = @item.ID })" class="elements">
+                        <span>Delete Sertificate</span>
+                    </a>
+                </td>
+                <td>
+                    <a href="@Url.Action("SertifikaGetir", "LearnDevelopment", new { id = @item.ID })" class="elements">
+                        <span>Update Sertificate</span>
+                    </a>
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</body>

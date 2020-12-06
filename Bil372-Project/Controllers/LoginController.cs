@@ -46,6 +46,11 @@ namespace Bil372_Project.Controllers
 
                 Session["ID"] = person.ID;
                 var PID = (int)Session["ID"];
+                if (personelusername.Equals("admin@gmail.com")) {
+                    
+                   return RedirectToAction("AdminLearningProfDevelopment", "Admin");
+
+                }
 
                 return RedirectToAction("PersonelInformation", "Personel", new {id= PID });
             }

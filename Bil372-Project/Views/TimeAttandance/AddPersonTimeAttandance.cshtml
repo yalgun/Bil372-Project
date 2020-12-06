@@ -1,0 +1,161 @@
+﻿@model Bil372_Project.Models.Time_AttandanceModel
+@using Bil372_Project.Models
+@{
+    Layout = "~/Views/Shared/AdminMain.cshtml";}
+@{
+    var data = (PersonelModel)ViewData["Message"];
+}
+
+<style>
+
+    .label {
+        color: #B4886B;
+        font-weight: bold;
+        display: block;
+        width: 150px;
+        float: left;
+    }
+
+        .label:after {
+            content: ": "
+        }
+
+    .success {
+        background-color: #4CAF50;
+    }
+    /* Green */
+    .info {
+        background-color: #2196F3;
+    }
+    /* Blue */
+    .warning {
+        background-color: #ff9800;
+    }
+    /* Orange */
+    .danger {
+        background-color: #f44336;
+    }
+    /* Red */
+    .other {
+        background-color: #e7e7e7;
+        color: black;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    body {
+        font-family: Arial;
+        margin: 0;
+    }
+
+    /* Header/Logo Title */
+    .header {
+        padding: 60px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 30px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        outline: none;
+    }
+
+    input[type=datetime-local] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        outline: none;
+    }
+    /* Page Content */
+    .content {
+        padding: 20px;
+    }
+
+    button[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    input[type=text]:focus {
+        background-color: lightblue;
+    }
+
+    .submit {
+        background-color: #4CAF50;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+
+    /* Gray */
+</style>
+
+<body>
+    <div class="header">
+        <h1>Add New Sertificate to Person</h1>
+
+    </div>
+    <div class="mid-class">
+        <div class="art-right-w3ls">
+            
+            @using (Html.BeginForm("getSelectedValue", "TimeAttandance", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-left-to-w3l">
+                    <div class="col-md-6">
+                        <label>Person Name:</label>
+                    </div>
+                    @Html.DropDownList("Persons", ViewBag.Persons as SelectList, new { @class = "form-control" })
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="giris_saati">Giriş Saati:</label>
+                    <input type="datetime-local" id="giris_saati" name="giris_saati">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="cikis_saati">Çıkış Saati:</label>
+                    <input type="datetime-local" id="cikis_saati" name="cikis_saati">
+                </div>
+
+
+                <div class="btnn">
+                    <button type="submit">Add</button>
+                    <br />
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
+
+    </div>
+
+</body>
+
+
