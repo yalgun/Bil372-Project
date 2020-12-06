@@ -22,7 +22,7 @@ namespace Bil372_Project.Data
         public IDbSet<Fin_ManModel> Fin_ManModels { get; set; }
         public IDbSet<IzinModel> IzinModels { get; set; }
         public IDbSet<Learn_DevelopmentModel> Learn_DevelopmentModels { get; set; }
-        public IDbSet<ProjectModel> Projects { get; set; }
+        public IDbSet<ProjectModel> ProjectModels { get; set; }
         public IDbSet<SalaryModel> SalaryModels { get; set; }
         public IDbSet<SertifikaModel> SertifikaModels { get; set; }
         public IDbSet<SigortaModel> SigortaModels { get; set; }
