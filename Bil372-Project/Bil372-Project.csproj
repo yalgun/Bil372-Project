@@ -460,10 +460,10 @@
     <Content Include="Views\Personel\Edit.cshtml" />
     <Content Include="Views\Personel\IzinGiris.cshtml" />
     <Content Include="Views\Personel\Create.cshtml" />
+    <Content Include="Views\AdminIzin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AdminIzin\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>

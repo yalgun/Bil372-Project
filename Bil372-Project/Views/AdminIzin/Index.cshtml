@@ -1,0 +1,71 @@
+﻿﻿@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/Main.cshtml";
+
+}
+
+
+<head>
+
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<div class="container-xl">
+	<div class="table-wrapper">
+		<div class="table-title">
+			<div class="row">
+				<div class="col-sm-12"><h2>Izinler</h2></div>
+				<div class="col-sm-8"></div>
+				<div class="col-sm-4">
+					<div class="search-box">
+						<input type="text" style="border-radius: 50px" class="form-control" placeholder="Search…">
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<hr />
+				</div>
+			</div>
+		</div>
+		<table class=" table table-bordered table-striped table-hover">
+			<tr>
+				<th>#</th>
+				<th>Açıklama</th>
+				<th>Başlangıç Tarihi</th>
+				<th>Bitiş Tarihi</th>
+				<th>Gün Sayısı</th>
+				<th>Onay</th>
+				<th></th>
+			</tr>
+			@for (int i = 0; i < Model.Rows.Count; i++)
+			{
+				<tr>
+					<td> @(i+1)</td>
+					<td> @Model.Rows[i][2]</td>
+					<td> @Model.Rows[i][3]</td>
+					<td> @Model.Rows[i][4]</td>
+					<td> @Model.Rows[i][5]</td>
+
+					<td>
+						@if (Model.Rows[i][6] == 1)
+						{
+							<span>&#10003;</span>
+						}
+						@if (Model.Rows[i][6] == 0)
+						{
+							<span>&#x292C;</span>
+						}
+
+					</td>
+					<td>
+						<a href="@Url.Action("Approve","AdminIzin", new { @ID = @Model.Rows[i][0]})" class="btn btn-success btn-danger">
+							<i class="fa fa-check-circle"></i>
+						</a>
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
+
