@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Bil372_Project.Data;
+using Bil372_Project.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,39 +12,71 @@ namespace Bil372_Project.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
-        public ActionResult Index()
-        {
-            return View();
-=======
-using Bil372_Project.Data;
-using Bil372_Project.Models;
-
-namespace Bil372_Project.Controllers
-{
-    public class RegisterController : Controller
-    {
-
         private DatabaseContext DbContext = new DatabaseContext();
-
-        public ActionResult RegisterPage()
+        // GET: Admin
+        public ActionResult AdminLearningProfDevelopment()
         {
-            return View ();
+
+            var viewModel = new PersonelViewModel();
+            viewModel.Personel = DbContext.Personel.ToList();
+            ViewData["Personel"] = viewModel;
+            dynamic mymodel = new ExpandoObject();
+            mymodel.Personel = viewModel.Personel;
+
+            var Ldevelopment = DbContext.Learn_DevelopmentModels.ToList();
+            mymodel.Ldevelopment = Ldevelopment;
+
+
+            var LD = DbContext.Learn_DevelopmentModels.Include(c => c.Person).Include(c=>c.Sertifika).ToList();
+
+
+
+
+
+            return View(LD);
+
         }
 
-        public ActionResult Register(PersonelModel personelModel)
-        {
+        public ActionResult AddNewLearningProfDevelopment() {
 
-            if (!ModelState.IsValid)
+            ViewBag.Persons = new SelectList(DbContext.Personel.ToList(), "ID", "PersonName", "PersonSurname");
+            ViewBag.Sertificate = new SelectList(DbContext.SertifikaModels.ToList(), "ID", "sertifika_adi");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult getSelectedValue() {
+
+
+            var person = Request.Form["Persons"];
+            var sertificate= Request.Form["Sertificate"];
+
+            int pId= Int16.Parse(person);
+            int sId = Int16.Parse(sertificate);
+            DbContext.Learn_DevelopmentModels.Add(new Learn_DevelopmentModel
             {
-                return RegisterPage();
-            }
-
-            DbContext.Personel.Add(personelModel);
+                person_id = pId,
+                sertifika_id = sId
+            });
             DbContext.SaveChanges();
 
-            return RedirectToAction("LoginPage", "Login");
->>>>>>> ea655b2... Register page back end added:Bil372-Project/Controllers/RegisterController.cs
+            Learn_DevelopmentModel ld = new Learn_DevelopmentModel();
+
+            
+
+
+            return RedirectToAction("AdminLearningProfDevelopment", "Admin");
+        }
+
+        public ActionResult DeleteLearnDevelopment(int? id) {
+            if (id == null)
+            {
+                return RedirectToAction("AdminLearningProfDevelopment", "Admin");
+            }
+            DbContext.Learn_DevelopmentModels.Remove(DbContext.Learn_DevelopmentModels.Find(id));
+            DbContext.SaveChanges();
+
+            return RedirectToAction("AdminLearningProfDevelopment", "Admin");
         }
     }
 }

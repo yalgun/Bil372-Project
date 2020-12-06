@@ -151,8 +151,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LearnDevelopmentController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\TimeAttandanceController.cs" />
     <Compile Include="Data\DatabaseContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -452,10 +454,15 @@
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Views\Login\RegisterPage.cshtml" />
     <Content Include="Views\Shared\AdminMain.cshtml" />
+    <Content Include="Views\Admin\AdminLearningProfDevelopment.cshtml" />
+    <Content Include="Views\Admin\AddNewLearningProfDevelopment.cshtml" />
+    <Content Include="Views\LearnDevelopment\Sertificate.cshtml" />
+    <Content Include="Views\LearnDevelopment\AddSertificate.cshtml" />
+    <Content Include="Views\TimeAttandance\AddPersonTimeAttandance.cshtml" />
+    <Content Include="Views\TimeAttandance\ListAllTimeAttandance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,0 +1,91 @@
+﻿
+@using Bil372_Project.Models
+
+
+@{
+    ViewBag.Title = "Sertificate";
+    Layout = "~/Views/Shared/AdminMain.cshtml";
+}
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Style the body */
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        /* Header/Logo Title */
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 30px;
+        }
+
+        /* Page Content */
+        .content {
+            padding: 20px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>List All Attandance</h1>
+        <li>
+            <a href="@Url.Action("AddPersonTimeAttandance", "TimeAttandance")" class="elements">
+                <span>Add Attandance</span>
+            </a>
+        </li>
+    </div>
+
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th> Person Name</th>
+            <th> Person Surname</th>
+            <th>Giriş Tarih ve Saati</th>
+            <th>Çıkış Tarih ve Saati</th>
+            <th>Delete</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.PersonModel.PersonName</td>
+                <td>@item.PersonModel.PersonSurname</td>
+                <td>@item.giris_saati</td>
+                <td>@item.cikis_saati</td>
+                <td>
+                    <a href="@Url.Action("DeleteAttandance", "TimeAttandance", new { id = @item.ID })" class="elements">
+                        <span>Delete Sertificate</span>
+                    </a>
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</body>

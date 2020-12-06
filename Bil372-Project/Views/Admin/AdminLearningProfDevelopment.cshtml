@@ -1,0 +1,88 @@
+﻿@using Bil372_Project.Models
+@{
+    Layout = "~/Views/Shared/AdminMain.cshtml";}
+@{
+    var data = (PersonelViewModel)ViewData["Personel"];
+    var dept = (SertifikaViewModel)ViewData["Sertificate"];
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    body {
+        font-family: Arial;
+        margin: 0;
+    }
+
+    /* Header/Logo Title */
+    .header {
+        padding: 60px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 30px;
+    }
+
+    /* Page Content */
+    .content {
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <h1>List All Persons and Their Sertificates</h1>
+
+    </div>
+
+    <table style="width:100%" bordercolor="Grey" id="table">
+        <tr>
+
+            <th>Person name</th>
+            <th>Person Surname</th>
+            <th>Sertificate Name</th>
+            <th>Sertificate Date</th>
+            <th>Sertificate Explanation</th>
+            <th>Delete</th>
+
+
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Person.PersonName</td>
+                    <td>@item.Person.PersonSurname</td>
+                    <td>@item.Sertifika.sertifika_adi</td>
+                    <td>@item.Sertifika.sertifika_tarihi</td>
+                    <td>@item.Sertifika.sertifika_aciklama</td>
+
+                    <td>
+                        <a href="@Url.Action("DeleteLearnDevelopment", "Admin", new { id = @item.ID })" class="elements">
+                            <span>Delete Sertificate</span>
+                        </a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <input type="button" value="Create" class="btn btn-success mr-2" onclick="location.href='@Url.Action("AddNewLearningProfDevelopment", "Admin")'" />
+</body>

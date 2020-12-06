@@ -1,0 +1,40 @@
+﻿@model Bil372_Project.Models.SertifikaModel
+@using Bil372_Project.Models
+
+@{
+    ViewBag.Title = "Sertificate";
+    Layout = "~/Views/Shared/AdminMain.cshtml";
+}
+
+<body>
+    <div class="mid-class">
+        <div class="art-right-w3ls">
+            <h2> Add new Sertificate</h2>
+            @using (Html.BeginForm("AddNewSertificate", "LearnDevelopment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-left-to-w3l">
+                    <label for="sertifika_adi">Sertifika Adı:</label>
+                    <input type="text" id="sertifika_adi" name="sertifika_adi">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="sertifika_tarihi">Sertifika Tarihi:</label>
+                    <input type="datetime-local" id="sertifika_tarihi" name="sertifika_tarihi">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="sertifika_aciklama">Sertifika Açıklama:</label>
+                    <input type="text" id="sertifika_aciklama" name="sertifika_aciklama">
+                </div>
+
+                <div class="btnn">
+                    <button type="submit">AddSerticiate</button>
+                    <br />
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
+
+    </div>
+
+</body>
