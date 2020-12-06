@@ -65,23 +65,29 @@
             <th> Sertifika Adı</th>
             <th> Sertifika Tarihi</th>
             <th>Sertifika Açıklama</th>
-            <th>Güncelle</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
         <tbody>
             @foreach (var item in Model.SertifikaModels.ToList())
             {
             <tr>
-                    <td>@item.ID</td>
-                    <td>@item.sertifika_adi</td>
-                    <td>@item.sertifika_tarihi</td>
-                    <td>@item.sertifika_aciklama</td>
-                    <td>
-                        <a href="@Url.Action("DeleteSertificate", "LearnDevelopment", new { id = @item.ID })" class="elements">
-                            <span>Delete Sertificate</span>
-                        </a>
-                    </td>
+                <td>@item.ID</td>
+                <td>@item.sertifika_adi</td>
+                <td>@item.sertifika_tarihi</td>
+                <td>@item.sertifika_aciklama</td>
+                <td>
+                    <a href="@Url.Action("DeleteSertificate", "LearnDevelopment", new { id = @item.ID })" class="elements">
+                        <span>Delete Sertificate</span>
+                    </a>
+                </td>
+                <td>
+                    <a href="@Url.Action("SertifikaGetir", "LearnDevelopment", new { id = @item.ID })" class="elements">
+                        <span>Update Sertificate</span>
+                    </a>
+                </td>
 
-                </tr>
+            </tr>
             }
 
         </tbody>

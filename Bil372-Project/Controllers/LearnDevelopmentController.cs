@@ -57,5 +57,21 @@ namespace Bil372_Project.Controllers
         }
 
 
+        public ActionResult SertifikaGetir(int id)
+        {
+            var ktgr = DbContext.SertifikaModels.Find(id);
+            ViewData["Message"]=ktgr;
+            return View("SertifikaGetir", ktgr);
+        }
+        public ActionResult UpdateSertificate(SertifikaModel sertifikaModel)
+        {
+            var ktg = DbContext.SertifikaModels.Find(sertifikaModel.ID);
+            ktg.sertifika_aciklama = sertifikaModel.sertifika_aciklama;
+            ktg.sertifika_adi = sertifikaModel.sertifika_adi;
+            ktg.sertifika_tarihi = sertifikaModel.sertifika_tarihi;
+            DbContext.SaveChanges();
+            return RedirectToAction("Sertificate", "LearnDevelopment");
+        }
+
     }
 }

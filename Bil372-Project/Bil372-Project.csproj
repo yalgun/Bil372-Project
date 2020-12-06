@@ -469,6 +469,7 @@
     <Content Include="Views\LearnDevelopment\AddSertificate.cshtml" />
     <Content Include="Views\TimeAttandance\AddPersonTimeAttandance.cshtml" />
     <Content Include="Views\TimeAttandance\ListAllTimeAttandance.cshtml" />
+    <Content Include="Views\LearnDevelopment\SertifikaGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
