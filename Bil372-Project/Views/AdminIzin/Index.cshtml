@@ -31,6 +31,9 @@
 		<table class=" table table-bordered table-striped table-hover">
 			<tr>
 				<th>#</th>
+				<th>Izin ID</th>
+				<th>Personel ID</th>
+				<th>Personel Ad Soyad</th>
 				<th>Açıklama</th>
 				<th>Başlangıç Tarihi</th>
 				<th>Bitiş Tarihi</th>
@@ -42,24 +45,26 @@
 			{
 				<tr>
 					<td> @(i+1)</td>
-					<td> @Model.Rows[i][2]</td>
-					<td> @Model.Rows[i][3]</td>
+					<td> @Model.Rows[i][0]</td>
+					<td> @Model.Rows[i][1]</td>
+					<td> @Model.Rows[i][2] @Model.Rows[i][3]</td>
 					<td> @Model.Rows[i][4]</td>
 					<td> @Model.Rows[i][5]</td>
-
+					<td> @Model.Rows[i][6]</td>
+					<td> @Model.Rows[i][7]</td>
 					<td>
-						@if (Model.Rows[i][6] == 1)
+						@if (Model.Rows[i][8] == 1)
 						{
 							<span>&#10003;</span>
 						}
-						@if (Model.Rows[i][6] == 0)
+						@if (Model.Rows[i][8] == 0)
 						{
 							<span>&#x292C;</span>
 						}
 
 					</td>
 					<td>
-						<a href="@Url.Action("Approve","AdminIzin", new { @ID = @Model.Rows[i][0]})" class="btn btn-success btn-danger">
+						<a href="@Url.Action("Approve","AdminIzin", new { @ID = @Model.Rows[i][0]})" class="btn btn-success btn-outline-light">
 							<i class="fa fa-check-circle"></i>
 						</a>
 					</td>

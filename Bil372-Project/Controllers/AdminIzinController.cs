@@ -19,11 +19,24 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM [dbo].[IzinModel]", sqlCon);
+                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT a.ID, a.pid, b.PersonName, b.PersonSurname, a.aciklama, a.baslangic_t, a.bitis_t, a.gun_sayisi, a.isApprove " +
+                    " FROM [dbo].[IzinModel] as a , [dbo].[Personel] as b WHERE a.pid = b.ID ", sqlCon);
                 sqlDA.Fill(dataTable);
             }
 
             return View(dataTable);
+        }
+
+        public ActionResult Approve(int ID)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "UPDATE [dbo].[IzinModel] SET isApprove = '" + 1 + "' WHERE ID = '" + ID + "'";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
