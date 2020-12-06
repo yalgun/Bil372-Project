@@ -25,5 +25,17 @@ namespace Bil372_Project.Controllers
 
             return View(dataTable);
         }
+        public ActionResult Delete(int ID)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "DELETE FROM [dbo].[Benef_ManMode] WHERE ID = '" + ID + "'";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlCon);
+                sqlCommand.ExecuteNonQuery();
+
+            }
+            return RedirectToAction("IzinGiris");
+        }
     }
 }

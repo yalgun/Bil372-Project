@@ -515,6 +515,7 @@
     <Content Include="Views\TimeAttandance\ListAllTimeAttandance.cshtml" />
     <Content Include="Views\LearnDevelopment\SertifikaGetir.cshtml" />
     <Content Include="Views\BenefitManagement\Index.cshtml" />
+    <Content Include="Views\Personel\BenefitManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

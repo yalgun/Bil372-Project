@@ -147,5 +147,17 @@ namespace Bil372_Project.Controllers
             return RedirectToAction("IzinGiris");
         }
 
+        public ActionResult BenefitManagement()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM [dbo].[Benef_ManModel] WHERE pid = '" + (int)LoggedUserID + "'", sqlCon);
+                sqlDA.Fill(dataTable);
+            }
+
+            return View(dataTable);
+        }
     }
 }
