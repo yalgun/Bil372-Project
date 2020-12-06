@@ -26,8 +26,8 @@ namespace Bil372_Project.Controllers
 
             var viewM = new PersonelViewModel();
             //viewM.Personel = DbContext.Personel.ToList();
-            
-            return View(viewModel);
+
+            return RedirectToAction("LoginPage", "Login");
         }
 
         public ActionResult About()
