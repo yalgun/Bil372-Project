@@ -1,8 +1,42 @@
-﻿
+﻿@model Bil372_Project.Models.ProjectModel
+@using Bil372_Project.Models
+
+
 @{
     ViewBag.Title = "Personel_proje";
     Layout = "~/Views/Shared/Main.cshtml";
 }
 
-<h2>Personel_proje</h2>
 
+@{
+    var proje = (ProjectModel)ViewData["Projeler"];
+    var workson = (Works_onModel)ViewData["Çalışmalar"];
+}
+
+<!DOCTYPE html>
+ <html>
+ <body>
+     <h1> Personelin Çalıştığı Projeler  </h1>
+
+     
+     <form>
+
+         <input type="text" id="Personel ID" name="pid"><br>
+         <!-- burdan gelen id önce workson'a gidecek bu idye sahip personelin proje_idsi buradan alınıp,projecte gidilecek bu id'ye sahip olan projelerin attr. ekrana basılacak -->
+         <table>
+             <td>Proje ID </td>
+             <p>@workson.personel_id=pid,</p>
+             <td>Proje Adı </td>
+             <td>Departman No </td>
+
+
+
+         </table>
+
+
+     </form>
+
+
+
+ </body>
+ </html>
