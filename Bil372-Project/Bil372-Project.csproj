@@ -456,6 +456,9 @@
     <Content Include="Views\Register\Reg.cshtml" />
     <Content Include="Views\Personel\Personel_proje.cshtml" />
     <Content Include="Views\MaasHistory\MaasPage.cshtml" />
+    <Content Include="Views\Personel\Edit.cshtml" />
+    <Content Include="Views\Personel\IzinGiris.cshtml" />
+    <Content Include="Views\Personel\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
