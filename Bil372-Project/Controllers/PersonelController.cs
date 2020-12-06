@@ -33,22 +33,25 @@ namespace Bil372_Project.Controllers
             return View();
         }
 
-        public ActionResult Personel_proje(int?id) {
-
+        public ActionResult Personel_proje(int? id) {
+            id = LoggedUserID;
             if (id == null)
             {
                 return RedirectToAction("Login", "Login");
             }
 
-            LoggedUserID = id;
-            var workson = DbContext.Works_onModels.Where(x => x.personel_id == id).FirstOrDefault();
-            var proje = DbContext.ProjectModels.Where(x => x.pid == workson.project_id).FirstOrDefault();
-            ProjectModel projectModel = (ProjectModel) proje;
-           
-            ViewData["Projeler"] = proje;
-           
 
-            return View();
+            List<Works_onModel> workson = DbContext.Works_onModels.Where(x=> x.personel_id==id).ToList();
+            List<ProjectModel> project = DbContext.ProjectModels.ToList();
+            List<ProjectModel> newproject = new List<ProjectModel> ();
+
+            foreach (var value in workson)
+            {
+                newproject.Add(project.Where(x=>x.pid==value.project_id).FirstOrDefault());
+            }
+
+
+            return View(newproject);
 
         }
 

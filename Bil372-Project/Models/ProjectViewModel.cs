@@ -7,10 +7,10 @@ namespace Bil372_Project.Models
 {
     public class ProjectViewModel
     {
-        public List<ProjectModel> Project { get; set; }
+        public List<ProjectModel> ProjectModels { get; set; }
         public ProjectViewModel()
         {
-            Project = new List<ProjectModel>();
+            ProjectModels = new List<ProjectModel>();
         }
     }
 }
