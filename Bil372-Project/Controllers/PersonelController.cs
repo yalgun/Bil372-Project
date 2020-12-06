@@ -44,6 +44,7 @@ namespace Bil372_Project.Controllers
                 return RedirectToAction("Login", "Login");
             }
 
+            var viewModel = new ProjectViewModel();
 
             List<Works_onModel> workson = DbContext.Works_onModels.Where(x=> x.personel_id==id).ToList();
             List<ProjectModel> project = DbContext.ProjectModels.ToList();
@@ -52,10 +53,11 @@ namespace Bil372_Project.Controllers
             foreach (var value in workson)
             {
                 newproject.Add(project.Where(x=>x.pid==value.project_id).FirstOrDefault());
+                viewModel.ProjectModels.Add((project.Where(x => x.pid == value.project_id).FirstOrDefault()));
             }
 
 
-            return View(newproject);
+            return View(viewModel);
 
         }
 
