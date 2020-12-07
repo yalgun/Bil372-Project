@@ -129,27 +129,41 @@
     <div class="header">
         <h1>Açık Pozisyonlar</h1>
 
+        <li>
+            <a href="@Url.Action("AddSertificate", "Acik_Pozisyon")" class="elements">
+                <span>Add Position</span>
+            </a>
+        </li>
+
     </div>
 
 
     <table class="table table-bordered">
         <tr>
-            <th> Açıklama </th>
             <th> Meslek </th>
+            <th> Açıklama </th>
             <th> İş Tanımı </th>
+            <th> Delete </th>
 
         </tr>
+
+
         <tbody>
-            @foreach (var item in Model.Acik_PozisyonModels.ToList())
+            @foreach (var item in Model.Acik_PozisyonModels)
             {
-                <tr>
+            <tr>
 
-                    <td>@item.açıklama</td>
-                    <td>@item.meslek</td>
-                    <td>@item.iş_tanımı</td>
+                <td>@item.meslek</td>
+                <td>@item.açıklama</td>
+                <td>@item.iş_tanımı</td>
+                <td>
+                    <a href="@Url.Action("DeletePosition", "Acik_Pozisyon", new { id = @item.ID })" class="elements">
+                        <span>Delete Position</span>
+                    </a>
+                </td>
 
 
-                </tr>
+            </tr>
             }
 
         </tbody>

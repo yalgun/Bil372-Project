@@ -24,7 +24,22 @@ namespace Bil372_Project.Controllers
         return View(viewModel);
     }
 
-  }
+
+        public ActionResult DeletePosition(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            DbContext.Acik_PozisyonModels.Remove(DbContext.Acik_PozisyonModels.Find(id));
+            DbContext.SaveChanges();
+
+            return RedirectToAction("Acik_Pozisyon", "Acik_Pozisyon");
+
+        }
+
+
+    }
 }
 
 
