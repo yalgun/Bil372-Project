@@ -1,0 +1,69 @@
+﻿@model Bil372_Project.Models.Benef_ManModel
+@using Bil372_Project.Models
+
+@{
+	Layout = "~/Views/Shared/AdminMain.cshtml";
+}
+@{
+	var data = (PersonelModel)ViewData["Message"];
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+	<h4>Benef_ManModel</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<div class="form-group">
+		<div class="col-md-10">
+			<label>Person Name</label>
+		</div>
+		@Html.DropDownList("pid", ViewBag.Persons as SelectList, new { @class = "form-control" })
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.sag_sig_aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.sag_sig_aciklama, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.sag_sig_aciklama, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.tur, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.tur, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.tur, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.hastalik_aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.hastalik_aciklama, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.hastalik_aciklama, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.ilac_bilgisi, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.ilac_bilgisi, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.ilac_bilgisi, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Create" class="btn btn-default btn-primary" />
+		</div>
+	</div>
+</div>
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>

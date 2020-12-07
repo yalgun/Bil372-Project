@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bil372_Project.Data;
+using Bil372_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,6 +13,7 @@ namespace Bil372_Project.Controllers
 {
     public class BenefitManagementController : Controller
     {
+        private DatabaseContext DbContext = new DatabaseContext();
         public static string connectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
         // GET: BenefitManagement
         public ActionResult Index()
@@ -19,7 +22,7 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM [dbo].[Benef_ManMode]",sqlCon);
+                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM [dbo].[Benef_ManModel]",sqlCon);
                 sqlDA.Fill(dataTable);
             }
 
@@ -36,6 +39,27 @@ namespace Bil372_Project.Controllers
 
             }
             return RedirectToAction("IzinGiris");
+        }
+
+        public ActionResult Create()
+        {
+            ViewBag.Persons = new SelectList(DbContext.Personel.ToList(), "ID", "PersonName", "PersonSurname");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Benef_ManModel BenefitManagement )
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "INSERT INTO [dbo].[Benef_ManModel] VALUES(" + BenefitManagement.pid + ", '"+ BenefitManagement.sag_sig_aciklama + 
+                    "', '" + BenefitManagement.tur + "', '" + BenefitManagement.hastalik_aciklama + "', '" + 
+                    BenefitManagement.ilac_bilgisi + "')";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlCon);
+                sqlCommand.ExecuteNonQuery();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
