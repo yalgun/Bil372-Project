@@ -58,7 +58,7 @@ namespace Bil372_Project.Controllers
 
         }
 
-        public ActionResult DeleteAttandance(int? id)
+        public ActionResult DeleteSalary(int? id)
         {
             if (id == null)
             {
