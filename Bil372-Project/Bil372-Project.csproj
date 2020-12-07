@@ -527,6 +527,7 @@
     <Content Include="Views\TimeAttandance\AttandanceGetir.cshtml" />
     <Content Include="Views\Personel\Sertifikalarim.cshtml" />
     <Content Include="Views\MaasHistory\Index.cshtml" />
+    <Content Include="Views\AdminMaas\ListAllSalary.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
