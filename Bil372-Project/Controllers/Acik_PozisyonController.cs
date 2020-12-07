@@ -59,6 +59,23 @@ namespace Bil372_Project.Controllers
 
 
 
+        public ActionResult Acik_PozisyonGetir(int id)
+        {
+            var ktgr = DbContext.Acik_PozisyonModels.Find(id);
+            ViewData["Message"] = ktgr;
+            return View("Acik_PozisyonGetir", ktgr);
+        }
+        public ActionResult UpdateAcik_Pozisyon(Acik_PozisyonModel acikpozisyonModel)
+        {
+            var ktg = DbContext.Acik_PozisyonModels.Find(acikpozisyonModel.ID);
+            ktg.meslek = acikpozisyonModel.meslek;
+            ktg.açıklama = acikpozisyonModel.açıklama;
+            ktg.iş_tanımı = acikpozisyonModel.iş_tanımı;
+            DbContext.SaveChanges();
+            return RedirectToAction("Acik_Pozisyon", "Acik_Pozisyon");
+        }
+
+
 
     }
 }
