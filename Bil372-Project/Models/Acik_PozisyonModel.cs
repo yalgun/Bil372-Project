@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+
 namespace Bil372_Project.Models
 {
     public class Acik_PozisyonModel

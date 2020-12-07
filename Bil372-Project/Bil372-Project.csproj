@@ -152,6 +152,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminIzinController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Acik_PozisyonController.cs" />
     <Compile Include="Controllers\LearnDevelopmentController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
@@ -470,6 +471,7 @@
     <Content Include="Views\TimeAttandance\AddPersonTimeAttandance.cshtml" />
     <Content Include="Views\TimeAttandance\ListAllTimeAttandance.cshtml" />
     <Content Include="Views\LearnDevelopment\SertifikaGetir.cshtml" />
+    <Content Include="Views\Acik_Pozisyon\Acik_Pozisyon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
