@@ -194,6 +194,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\MaasHistoryController.cs" />
     <Compile Include="Controllers\AdminMaasController.cs" />
+    <Compile Include="Controllers\SalaryListController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\accordion.css" />
