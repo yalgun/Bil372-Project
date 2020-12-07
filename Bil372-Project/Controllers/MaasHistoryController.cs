@@ -2,6 +2,9 @@
 using Bil372_Project.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,12 +17,29 @@ namespace Bil372_Project.Controllers
 
         private DatabaseContext DbContext = new DatabaseContext();
 
+       
+        public static string connectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
         //GET Salary
+        public ActionResult Index()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM SalaryModel", sqlCon);
+                sqlDA.Fill(dataTable);
+            }
+            return View(dataTable);
+        }
         public ActionResult Maas(int? id)
         {
-            if (id == null)
+            if (id == null && PersonelController.LoggedUserID == null)
             {
                 return RedirectToAction("Login", "Login");
+            }
+            if( id == null)
+            {
+                id = PersonelController.LoggedUserID;
             }
             LoggedUserID = id;
             var person = DbContext.Personel.Where(x => x.ID == id).FirstOrDefault();

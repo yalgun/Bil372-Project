@@ -524,6 +524,7 @@
     <Content Include="Views\Acik_Pozisyon\AddPosition.cshtml" />
     <Content Include="Views\Acik_Pozisyon\Acik_PozisyonGetir.cshtml" />
     <Content Include="Views\AdminMaas\AdminMaasPage.cshtml" />
+    <Content Include="Views\MaasHistory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

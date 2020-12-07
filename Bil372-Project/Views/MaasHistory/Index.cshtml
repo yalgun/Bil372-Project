@@ -1,0 +1,45 @@
+﻿﻿@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/Main.cshtml";
+
+}
+
+
+<head>
+
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div class="container-xl">
+	<div class="table-wrapper">
+		<div class="table-title">
+			<div class="row">
+				<div class="col-sm-12"><h2>Salary History</h2></div>
+				<div class="col-sm-8"></div>
+				<div class="col-sm-4">
+					<div class="search-box">
+						<input type="text" style="border-radius: 50px" class="form-control" placeholder="Search…">
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<hr />
+				</div>
+			</div>
+		</div>
+		<table class=" table table-bordered table-striped table-hover">
+			<tr>
+				<th>#</th>
+				<th>Miktar</th>
+				<th>Tarih</th>
+			</tr>
+			@for (int i = 0; i < Model.Rows.Count; i++)
+			{
+				<tr>
+					<td> @(i+1)</td>
+					<td> @Model.Rows[i][2]</td>
+					<td> @Model.Rows[i][3]</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
