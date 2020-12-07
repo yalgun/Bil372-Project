@@ -1,10 +1,10 @@
-﻿
+﻿@model Bil372_Project.Models.SertifikaViewModel
 @using Bil372_Project.Models
 
 
 @{
-    ViewBag.Title = "Sertificate";
-    Layout = "~/Views/Shared/AdminMain.cshtml";
+    ViewBag.Title = "SertificateModel";
+    Layout = "~/Views/Shared/Main.cshtml";
 }
 <head>
     <title>Page Title</title>
@@ -50,44 +50,33 @@
 </head>
 <body>
     <div class="header">
-        <h1>List All Attandance</h1>
-        <li>
-            <a href="@Url.Action("AddPersonTimeAttandance", "TimeAttandance")" class="elements">
-                <span>Add Attandance</span>
-            </a>
-        </li>
+        <h1>List All My Sertificates</h1>
+
     </div>
 
 
     <table class="table table-bordered">
         <tr>
-            <th>ID</th>
-            <th> Person Name</th>
-            <th> Person Surname</th>
-            <th>Giriş Tarih ve Saati</th>
-            <th>Çıkış Tarih ve Saati</th>
-            <th>Delete</th>
-            
+            <th> Sertifika Adı</th>
+            <th> Sertifika Tarihi</th>
+            <th>Sertifika Açıklama </th>
+
         </tr>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.SertifikaModels.ToList())
             {
-            <tr>
-                <td>@item.ID</td>
-                <td>@item.PersonModel.PersonName</td>
-                <td>@item.PersonModel.PersonSurname</td>
-                <td>@item.giris_saati</td>
-                <td>@item.cikis_saati</td>
-                <td>
-                    <a href="@Url.Action("DeleteAttandance", "TimeAttandance", new { id = @item.ID })" class="elements">
-                        <span>Delete Time Attandance</span>
-                    </a>
-                </td>
+                <tr>
+
+                    <td>@item.sertifika_adi</td>
+                    <td>@item.sertifika_tarihi</td>
+                    <td>@item.sertifika_aciklama</td>
 
 
-            </tr>
+                </tr>
             }
 
         </tbody>
+
+
     </table>
 </body>

@@ -159,5 +159,31 @@ namespace Bil372_Project.Controllers
 
             return View(dataTable);
         }
+
+
+
+        public ActionResult Sertifikalarim() {
+
+            int? id = LoggedUserID;
+            if (id == null) {
+                return RedirectToAction("Login", "Login");
+            }
+            
+
+            List<Learn_DevelopmentModel> learn_Developments = DbContext.Learn_DevelopmentModels.Where(x => x.person_id == id).ToList();
+            List<SertifikaModel> sertificate = DbContext.SertifikaModels.ToList();
+            List<SertifikaModel> newsertificate = new List<SertifikaModel>();
+            var viewModel = new SertifikaViewModel();
+
+            foreach (var value in learn_Developments)
+            {
+                viewModel.SertifikaModels.Add((sertificate.Where(x => x.ID == value.sertifika_id).FirstOrDefault()));
+            }
+
+            return View(viewModel);
+
+
+
+        }
     }
 }

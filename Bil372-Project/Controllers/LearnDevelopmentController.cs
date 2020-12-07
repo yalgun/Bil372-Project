@@ -63,6 +63,10 @@ namespace Bil372_Project.Controllers
             ViewData["Message"]=ktgr;
             return View("SertifikaGetir", ktgr);
         }
+
+
+
+
         public ActionResult UpdateSertificate(SertifikaModel sertifikaModel)
         {
             var ktg = DbContext.SertifikaModels.Find(sertifikaModel.ID);
