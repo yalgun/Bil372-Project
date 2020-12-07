@@ -18,7 +18,7 @@
 				<div class="col-sm-8"></div>
 				<div class="col-sm-4">
 					<div class="search-box">
-						<input type="text" style="border-radius: 50px" class="form-control" placeholder="Search…">
+						<input id="myInput" onkeyup="myFunction()"  type="text" style="border-radius: 50px" class="form-control" placeholder="Search…">
 					</div>
 				</div>
 				<div class="col-sm-12">
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</div>
-		<table class=" table table-bordered table-striped table-hover">
+		<table id="myTable" class=" table table-bordered table-striped table-hover">
 			<tr>
 				<th>#</th>
 				<th>Sağlık Sigortası Açıklama</th>
@@ -47,3 +47,24 @@
 		</table>
 	</div>
 </div>
+
+<script>
+	function myFunction() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>
