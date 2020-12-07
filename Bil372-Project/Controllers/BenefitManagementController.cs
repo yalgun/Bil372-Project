@@ -61,5 +61,31 @@ namespace Bil372_Project.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int ID)
+        {
+            Benef_ManModel Izin = new Benef_ManModel();
+            DataTable dtable = new DataTable();
+            
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT * FROM [dbo].[Benef_ManModel] WHERE ID ='" + ID + "'";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.Fill(dtable);
+                if (dtable.Rows.Count == 1)
+                {
+                    Izin.ID = (int)dtable.Rows[0][0];
+                    Izin.pid = (int)dtable.Rows[0][1];
+                    Izin.sag_sig_aciklama = dtable.Rows[0][2].ToString();
+                    Izin.tur = dtable.Rows[0][3].ToString();
+                    Izin.hastalik_aciklama= dtable.Rows[0][4].ToString();
+                    Izin.ilac_bilgisi= dtable.Rows[0][5].ToString();
+                    ViewBag.Persons = new SelectList(DbContext.Personel.ToList(), "ID", "username", Izin.pid);
+                    return View(Izin);
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
