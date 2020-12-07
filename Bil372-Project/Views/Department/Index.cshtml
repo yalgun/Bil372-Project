@@ -16,14 +16,14 @@
 	<div class="table-wrapper">
 		<div class="table-title">
 			<div class="row">
-				<div class="col-sm-12"><h2>Benefit Management</h2></div>
-				<div class="col-sm-2">
+				<div class="col-sm-12"><h2>Department</h2></div>
+				<div class="col-sm-3">
 					<a href="@Url.Action("Create","Department")" class="btn btn-success btn-info"> <i class="material-icons"></i> <span>Departman Ekle</span></a>
 				</div>
-				<div class="col-sm-6"></div>
+				<div class="col-sm-5"></div>
 				<div class="col-sm-4">
 					<div class="search-box">
-						<input type="text" style="border-radius: 50px" class="form-control" placeholder="Search…">
+						<input id="myInput" onkeyup="myFunction()" type="text" style="border-radius: 50px" class="form-control" placeholder="Search…">
 					</div>
 				</div>
 				<div class="col-sm-12">
@@ -67,7 +67,7 @@
 		table = document.getElementById("myTable");
 		tr = table.getElementsByTagName("tr");
 		for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[3];
+			td = tr[i].getElementsByTagName("td")[1];
 			if (td) {
 				txtValue = td.textContent || td.innerText;
 				if (txtValue.toUpperCase().indexOf(filter) > -1) {
