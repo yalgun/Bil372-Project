@@ -22,7 +22,7 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM [dbo].[Benef_ManModel]",sqlCon);
+                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT a.PersonName, a.PersonSurname, b.sag_sig_aciklama, b.tur, b.hastalik_aciklama, b.ilac_bilgisi, b.ID FROM [dbo].[Benef_ManModel] AS b, [dbo].[Personel] AS a WHERE b.pid = a.ID", sqlCon);
                 sqlDA.Fill(dataTable);
             }
 
@@ -86,6 +86,19 @@ namespace Bil372_Project.Controllers
                 }
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Benef_ManModel BenefitManagement)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "UPDATE [dbo].[Benef_ManModel] SET pid = '" + BenefitManagement.pid + "', sag_sig_aciklama = '" + BenefitManagement.sag_sig_aciklama+ "', hastalik_aciklama = '" + BenefitManagement.hastalik_aciklama  + "', tur = " + BenefitManagement.tur + " ilac_bilgisi = '" + BenefitManagement.ilac_bilgisi + "' WHERE ID = "+ BenefitManagement.ID;
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+            }
+            return RedirectToAction("IzinGiris");
         }
     }
 }
