@@ -39,6 +39,27 @@ namespace Bil372_Project.Controllers
         }
 
 
+        public ActionResult AddPosition()
+        {
+            return View();
+        }
+
+
+        public ActionResult AddNewPosition(Acik_PozisyonModel acikpozisyonmodel)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Acik_Pozisyon", "Acik_Pozisyon");
+            }
+            DbContext.Acik_PozisyonModels.Add(acikpozisyonmodel);
+            DbContext.SaveChanges();
+            return RedirectToAction("Acik_Pozisyon", "Acik_Pozisyon");
+        }
+
+
+
+
     }
 }
 

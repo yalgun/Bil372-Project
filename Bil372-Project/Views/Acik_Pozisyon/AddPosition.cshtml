@@ -1,18 +1,10 @@
-﻿
-@using System.Linq;
-@using System;
-@using System.Collections.Generic;
-
-
-
-
+﻿@model Bil372_Project.Models.Acik_PozisyonModel
 @using Bil372_Project.Models
 
 @{
-    ViewBag.Title = "Açık Pozisyonlar";
+    ViewBag.Title = "AcikPozisyon";
     Layout = "~/Views/Shared/AdminMain.cshtml";
 }
-
 <style>
 
     .label {
@@ -125,53 +117,38 @@
     /* Gray */
 </style>
 <body>
-
     <div class="header">
-        <h1>Açık Pozisyonlar</h1>
+        <h1>Add New Positions</h1>
 
-        <li>
-            <a href="@Url.Action("AddPosition", "Acik_Pozisyon")" class="elements">
-                <span>Add Position</span>
-            </a>
-        </li>
+    </div>
+    <div class="mid-class">
+        <div class="art-right-w3ls">
+            @using (Html.BeginForm("AddNewPosition", "Acik_Pozisyon", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-left-to-w3l">
+                    <label for="meslek"> Meslek :</label>
+                    <input type="text" id="meslek" name="meslek">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="açıklama"> Açıklama:</label>
+                    <input type="text" id="açıklama" name="açıklama">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="iş_tanımı">İş Tanımı:</label>
+                    <input type="text" id="iş_tanımı" name="iş_tanımı">
+                </div>
+
+                <div class="btnn">
+                    <button type="submit">AddPosition</button>
+                    <br />
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
 
     </div>
 
-
-    <table class="table table-bordered">
-        <tr>
-            <th> Meslek </th>
-            <th> Açıklama </th>
-            <th> İş Tanımı </th>
-            <th> Delete </th>
-
-        </tr>
-
-
-        <tbody>
-            @foreach (var item in Model.Acik_PozisyonModels)
-            {
-            <tr>
-
-                <td>@item.meslek</td>
-                <td>@item.açıklama</td>
-                <td>@item.iş_tanımı</td>
-                <td>
-                    <a href="@Url.Action("DeletePosition", "Acik_Pozisyon", new { id = @item.ID })" class="elements">
-                        <span>Delete Position</span>
-                    </a>
-                </td>
-
-
-            </tr>
-            }
-
-        </tbody>
-
-
-    </table>
-
-
-    <
-
 </body>
+
