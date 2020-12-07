@@ -526,6 +526,7 @@
     <Content Include="Views\AdminMaas\AdminMaasPage.cshtml" />
     <Content Include="Views\TimeAttandance\AttandanceGetir.cshtml" />
     <Content Include="Views\Personel\Sertifikalarim.cshtml" />
+    <Content Include="Views\MaasHistory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
