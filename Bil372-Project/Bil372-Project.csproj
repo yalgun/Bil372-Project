@@ -152,6 +152,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminIzinController.cs" />
     <Compile Include="Controllers\BenefitManagementController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Acik_PozisyonController.cs" />
     <Compile Include="Controllers\LearnDevelopmentController.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\MaasHistoryController.cs" />
     <Compile Include="Controllers\AdminMaasController.cs" />
+    <Compile Include="Controllers\SalaryListController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\accordion.css" />
@@ -528,6 +530,8 @@
     <Content Include="Views\TimeAttandance\AttandanceGetir.cshtml" />
     <Content Include="Views\Personel\Sertifikalarim.cshtml" />
     <Content Include="Views\MaasHistory\Index.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\SalaryList\Index.aspx" />
     <Content Include="Views\Project\ListProjects.cshtml" />
     <Content Include="Views\Project\AddNewProject.cshtml" />
     <Content Include="Views\Project\AddNewProjectToPerson.cshtml" />
