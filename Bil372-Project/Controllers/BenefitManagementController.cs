@@ -43,7 +43,7 @@ namespace Bil372_Project.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.Persons = new SelectList(DbContext.Personel.ToList(), "ID", "PersonName", "PersonSurname");
+            ViewBag.Persons = new SelectList(DbContext.Personel.ToList(), "ID", "username", "PersonSurname");
             return View();
         }
 
