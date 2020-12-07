@@ -521,6 +521,8 @@
     <Content Include="Views\BenefitManagement\Edit.cshtml" />
     <Content Include="Views\Acik_Pozisyon\Acik_Pozisyon.cshtml" />
     <Content Include="Views\Acik_Pozisyon\AddPosition.cshtml" />
+    <Content Include="Views\TimeAttandance\AttandanceGetir.cshtml" />
+    <Content Include="Views\Personel\Sertifikalarim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

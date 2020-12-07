@@ -1,11 +1,14 @@
 ﻿@model Bil372_Project.Models.Time_AttandanceModel
 @using Bil372_Project.Models
-@{
-    Layout = "~/Views/Shared/AdminMain.cshtml";}
-@{
-    var data = (PersonelModel)ViewData["Message"];
-}
 
+@{
+    ViewBag.Title = "TimeAttandance";
+    Layout = "~/Views/Shared/AdminMain.cshtml";
+}
+@{
+    var data = (Time_AttandanceModel)ViewData["Message"];
+
+}
 <style>
 
     .label {
@@ -117,35 +120,31 @@
 
     /* Gray */
 </style>
-
 <body>
     <div class="header">
-        <h1>Add New Attandance to Person</h1>
+        <h1>Update Sertificates</h1>
 
     </div>
     <div class="mid-class">
         <div class="art-right-w3ls">
-            
-            @using (Html.BeginForm("getSelectedValue", "TimeAttandance", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("UpdateSertificate", "LearnDevelopment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 <div class="form-left-to-w3l">
-                    <div class="col-md-6">
-                        <label>Person Name:</label>
-                    </div>
-                    @Html.DropDownList("Persons", ViewBag.Persons as SelectList, new { @class = "form-control" })
+                    <label for="sertifika_adi">Sertifika Adı:</label>
+                    <input type="text" id="sertifika_adi" name="sertifika_adi" value=@data.PersonModel.PersonName>
+                    <input type="text" id="ID" name="ID" value=@data.ID hidden>
                 </div>
                 <div class="form-left-to-w3l">
-                    <label for="giris_saati">Giriş Saati:</label>
-                    <input type="datetime-local" id="giris_saati" name="giris_saati">
+                    <label for="sertifika_tarihi">Sertifika Tarihi:</label>
+                    <input type="datetime-local" id="sertifika_tarihi" name="sertifika_tarihi" value=@data.giris_saati>
                 </div>
                 <div class="form-left-to-w3l">
-                    <label for="cikis_saati">Çıkış Saati:</label>
-                    <input type="datetime-local" id="cikis_saati" name="cikis_saati">
+                    <label for="sertifika_aciklama">Sertifika Açıklama:</label>
+                    <input type="text" id="sertifika_aciklama" name="sertifika_aciklama" value=@data.cikis_saati>
                 </div>
-
 
                 <div class="btnn">
-                    <button type="submit">Add</button>
+                    <button type="submit">Update</button>
                     <br />
                 </div>
 
@@ -157,5 +156,3 @@
     </div>
 
 </body>
-
-
