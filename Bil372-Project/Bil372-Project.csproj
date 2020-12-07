@@ -157,6 +157,7 @@
     <Compile Include="Controllers\LearnDevelopmentController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\TimeAttandanceController.cs" />
     <Compile Include="Data\DatabaseContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -527,6 +528,9 @@
     <Content Include="Views\TimeAttandance\AttandanceGetir.cshtml" />
     <Content Include="Views\Personel\Sertifikalarim.cshtml" />
     <Content Include="Views\MaasHistory\Index.cshtml" />
+    <Content Include="Views\Project\ListProjects.cshtml" />
+    <Content Include="Views\Project\AddNewProject.cshtml" />
+    <Content Include="Views\Project\AddNewProjectToPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

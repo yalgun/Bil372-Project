@@ -1,0 +1,106 @@
+﻿@using Bil372_Project.Models
+@{
+    Layout = "~/Views/Shared/AdminMain.cshtml";}
+
+
+<style>
+
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    body {
+        font-family: Arial;
+        margin: 0;
+    }
+
+    /* Header/Logo Title */
+    .header {
+        padding: 60px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 30px;
+    }
+
+    /* Page Content */
+    .content {
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <h1>List All Projects</h1>
+
+    </div>
+
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Department Name:</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Department)
+                        {
+                            <tr>
+                                <td>@item.DepartmentName</td>
+
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Project Name</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Project)
+                        {
+                        <tr>
+
+                            <td>@item.p_adı</td>
+                            <td>
+                                <a href="@Url.Action("DeleteProject", "Project", new { id = @item.pid })" class="elements">
+                                    <span>Delete Project</span>
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+    <input type="button" value="Add New Project" class="btn btn-success mr-2" onclick="location.href='@Url.Action("AddNewProject", "Project")'" />
+    <input type="button" value="Add New Project to Person" class="btn btn-success mr-2" onclick="location.href='@Url.Action("AddNewProjectToPerson", "Project")'" />
+</body>
