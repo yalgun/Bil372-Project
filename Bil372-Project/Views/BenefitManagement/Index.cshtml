@@ -29,8 +29,8 @@
 		</div>
 		<table class=" table table-bordered table-striped table-hover">
 			<tr>
-				<th>ID</th>
-				<th>pid</th>
+				<th>#</th>
+				<th>Personel Adı Soyadı</th>
 				<th>sag_sig_aciklama</th>
 				<th>tur</th>
 				<th>hastalik_aciklama</th>
@@ -40,18 +40,18 @@
 			@for (int i = 0; i < Model.Rows.Count; i++)
 			{
 				<tr>
-					<td> @Model.Rows[i][0]</td>
-					<td> @Model.Rows[i][1]</td>
+					<td> @(i+1)</td>
+					<td> @Model.Rows[i][0] @Model.Rows[i][1]</td>
 					<td> @Model.Rows[i][2]</td>
 					<td> @Model.Rows[i][3]</td>
 					<td> @Model.Rows[i][4]</td>
 					<td> @Model.Rows[i][5]</td>
 					<td>
-						<a href="@Url.Action("Edit","BenefitManagement", new { @ID = @Model.Rows[i][0]})" class="btn btn-success btn-primary">
+						<a href="@Url.Action("Edit","BenefitManagement", new { @ID = @Model.Rows[i][6]})" class="btn btn-success btn-primary">
 							<i class="fa fa-edit"></i>
 
 						</a>
-						<a href="@Url.Action("Delete","BenefitManagement", new { @ID = @Model.Rows[i][0]})" class="btn btn-success btn-danger">
+						<a href="@Url.Action("Delete","BenefitManagement", new { @ID = @Model.Rows[i][6]})" class="btn btn-success btn-danger">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
