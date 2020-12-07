@@ -1,0 +1,47 @@
+﻿@model Bil372_Project.Models.SalaryModel
+@using Bil372_Project.Models
+
+@{
+    Layout = "~/Views/Shared/AdminMain.cshtml";
+}
+@{
+    var data = (PersonelModel)ViewData["Message"];
+}
+<h2>Salary Entry Screen</h2>
+<body>
+    <div class="mid-class">
+        <div class="art-right-w3ls">
+            <h2> Personel Sign Up</h2>
+            @using (Html.BeginForm("AdminMaasPage", "AdminMaas", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="main">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <label>Select Person Name</label>
+                        </div>
+                        @Html.DropDownList("pid", ViewBag.Persons as SelectList, new { @class = "form-control" })
+                    </div>
+                    <div class="form-left-to-w3l ">
+                        @Html.LabelFor(m => m.miktar)
+                        @Html.TextBoxFor(m => m.miktar, new { @class = "form-control", @placeholder = "Surname" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.LabelFor(m => m.tarih)
+                        @Html.TextBoxFor(m => m.tarih, "", new { @class = "form-control", @placeholder = "Email" })
+                    </div>
+                    
+                </div>
+
+                <div class="clear"></div>
+                <div class="btnn">
+                    <button type="submit">Sign Up</button>
+                </div>
+            }
+
+            <!--login form-->
+
+        </div>
+
+    </div>
+
+</body>

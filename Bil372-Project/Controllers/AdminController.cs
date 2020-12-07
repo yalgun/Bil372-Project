@@ -29,10 +29,6 @@ namespace Bil372_Project.Controllers
 
             var LD = DbContext.Learn_DevelopmentModels.Include(c => c.Person).Include(c=>c.Sertifika).ToList();
 
-
-
-
-
             return View(LD);
 
         }
@@ -63,8 +59,6 @@ namespace Bil372_Project.Controllers
             Learn_DevelopmentModel ld = new Learn_DevelopmentModel();
 
             
-
-
             return RedirectToAction("AdminLearningProfDevelopment", "Admin");
         }
 

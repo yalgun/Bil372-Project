@@ -192,6 +192,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\MaasHistoryController.cs" />
+    <Compile Include="Controllers\AdminMaasController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\accordion.css" />
@@ -521,6 +522,7 @@
     <Content Include="Views\BenefitManagement\Edit.cshtml" />
     <Content Include="Views\Acik_Pozisyon\Acik_Pozisyon.cshtml" />
     <Content Include="Views\Acik_Pozisyon\AddPosition.cshtml" />
+    <Content Include="Views\AdminMaas\AdminMaasPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
