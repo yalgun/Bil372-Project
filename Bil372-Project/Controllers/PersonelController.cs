@@ -140,7 +140,8 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "UPDATE [dbo].[IzinModel] SET aciklama = '" + Izin.aciklama + "', baslangic_t = '" + Izin.baslangic_t.ToString("yyyy-MM-dd") + "', bitis_t = '" + Izin.bitis_t.ToString("yyyy-MM-dd") + "', gun_sayisi = " + toplamGun + ", isApprove = " + 0 + " WHERE ID = " + Izin.ID;
+                string query = "UPDATE [dbo].[IzinModel] SET aciklama = '" + Izin.aciklama + "', baslangic_t = '" 
+                    + Izin.baslangic_t.ToString("yyyy-MM-dd") + "', bitis_t = '" + Izin.bitis_t.ToString("yyyy-MM-dd") + "', gun_sayisi = " + toplamGun + ", isApprove = " + 0 + " WHERE ID = " + Izin.ID;
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.ExecuteNonQuery();
             }
