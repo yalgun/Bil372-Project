@@ -65,7 +65,7 @@ namespace Bil372_Project.Controllers
             DbContext.SalaryModels.Remove(DbContext.SalaryModels.Find(sid));
             DbContext.SaveChanges();
 
-            return RedirectToAction("Index", "AdminMaasPage");
+            return RedirectToAction("Index");
 
         }
 

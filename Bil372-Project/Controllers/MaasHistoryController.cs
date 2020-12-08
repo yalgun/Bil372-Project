@@ -26,7 +26,7 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM SalaryModel", sqlCon);
+                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM SalaryModel Where pid = " + PersonelController.LoggedUserID, sqlCon);
                 sqlDA.Fill(dataTable);
             }
             return View(dataTable);
