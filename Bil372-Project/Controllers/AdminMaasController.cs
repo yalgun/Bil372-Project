@@ -42,7 +42,7 @@ namespace Bil372_Project.Controllers
         }
 
 
-        public ActionResult ListAllSalary()
+        public ActionResult Index()
         {
             var viewModel = new SalaryViewModel();
 
