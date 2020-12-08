@@ -36,9 +36,7 @@ namespace Bil372_Project.Controllers
             });
             DbContext.SaveChanges();
 
-            Learn_DevelopmentModel ld = new Learn_DevelopmentModel();
-
-            return RedirectToAction("ListAllSalary", "AdminMaasPage");
+            return RedirectToAction("Index", "AdminMaas");
         }
 
 
@@ -58,16 +56,16 @@ namespace Bil372_Project.Controllers
 
         }
 
-        public ActionResult DeleteSalary(int? id)
+        public ActionResult DeleteSalary(int? sid)
         {
-            if (id == null)
+            if (sid == null)
             {
                 return RedirectToAction("Login", "Login");
             }
-            DbContext.SalaryModels.Remove(DbContext.SalaryModels.Find(id));
+            DbContext.SalaryModels.Remove(DbContext.SalaryModels.Find(sid));
             DbContext.SaveChanges();
 
-            return RedirectToAction("ListAllTimeAttandance", "AdminMaasPage");
+            return RedirectToAction("Index", "AdminMaasPage");
 
         }
 

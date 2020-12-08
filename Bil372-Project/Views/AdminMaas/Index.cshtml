@@ -3,7 +3,7 @@
 
 
 @{
-    ViewBag.Title = "Sertificate";
+    ViewBag.Title = "";
     Layout = "~/Views/Shared/AdminMain.cshtml";
 }
 <head>
@@ -73,13 +73,13 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.pid</td>
+                    <td>@item.sid</td>
                     <td>@item.PersonModel.PersonName</td>
                     <td>@item.PersonModel.PersonSurname</td>
                     <td>@item.miktar</td>
                     <td>@item.tarih</td>
                     <td>
-                        <a href="@Url.Action("DeleteAttandance", "TimeAttandance", new { id = @item.pid })" class="elements">
+                        <a href="@Url.Action("DeleteSalary", "AdminMaas", new { sid = @item.sid })" class="elements">
                             <span>Delete Salary</span>
                         </a>
                     </td>
