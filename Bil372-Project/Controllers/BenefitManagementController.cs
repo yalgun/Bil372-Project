@@ -33,12 +33,12 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "DELETE FROM [dbo].[Benef_ManMode] WHERE ID = '" + ID + "'";
+                string query = "DELETE FROM [dbo].[Benef_ManModel] WHERE ID = '" + ID + "'";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlCon);
                 sqlCommand.ExecuteNonQuery();
 
             }
-            return RedirectToAction("IzinGiris");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Create()
@@ -94,11 +94,11 @@ namespace Bil372_Project.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "UPDATE [dbo].[Benef_ManModel] SET pid = '" + BenefitManagement.pid + "', sag_sig_aciklama = '" + BenefitManagement.sag_sig_aciklama+ "', hastalik_aciklama = '" + BenefitManagement.hastalik_aciklama  + "', tur = " + BenefitManagement.tur + " ilac_bilgisi = '" + BenefitManagement.ilac_bilgisi + "' WHERE ID = "+ BenefitManagement.ID;
+                string query = "UPDATE [dbo].[Benef_ManModel] SET pid = '" + BenefitManagement.pid + "', sag_sig_aciklama = '" + BenefitManagement.sag_sig_aciklama+ "', hastalik_aciklama = '" + BenefitManagement.hastalik_aciklama  + "', tur = '" + BenefitManagement.tur + "', ilac_bilgisi = '" + BenefitManagement.ilac_bilgisi + "' WHERE ID = "+ BenefitManagement.ID;
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.ExecuteNonQuery();
             }
-            return RedirectToAction("IzinGiris");
+            return RedirectToAction("Index");
         }
     }
 }
